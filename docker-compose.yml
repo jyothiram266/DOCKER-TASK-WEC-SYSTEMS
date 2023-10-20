@@ -1,0 +1,28 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo 
+    environment:
+      #-  MONGO_URI="mongodb//mon-project-wee:monproject@monprojectwee.brqps.mongodb.net/monprojectWee?retryWrites=true&w=majority"
+      - MONGO_URI=mongodb://student:nitk@mongo:27017/admin
+
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "5173:5173"
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: student
+      MONGO_INITDB_ROOT_PASSWORD: nitk
+      MONGO_INITDB_DATABASE: mongodb

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert -f docker-compose.yml
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: backend
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: backend
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: /snap/kompose/19/kompose-linux-amd64 convert -f docker-compose.yml
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: backend
+    spec:
+      containers:
+      - env:
+        - name: MONGO_URI
+          value: mongodb://student:nitk@mongo:27017/admin
+        image: backend
+        imagePullPolicy: ""
+        name: backend
+        ports:
+        - containerPort: 5000
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
