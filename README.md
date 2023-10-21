@@ -13,8 +13,9 @@
   - Kubernetes Deployment(using minikube)
   - Github workflow Action
 ## Cloning the Repository
-bash 
+``` bash 
 git clone https://github.com/puranikvinit/mern-application.git
+```
 ## Building the Docker Image
 1.Created a two differnt Dockerfile one is for frontend and other is for backend with the configuration given below to build an image and run it on container.
   - Frontend Dockerfile
