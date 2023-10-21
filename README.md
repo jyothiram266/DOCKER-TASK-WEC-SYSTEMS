@@ -84,8 +84,59 @@ services:
 
 ## Kubernates deployment
  1. For creating the kubernates manifest file . used Kompose to convert the dockerfile into kunernates manifest file
-    ``` bash
-       
-   ```
+ ``` bash
+   kompose convert -f docker-compose.yaml
+ ```
+2. It will create three deployments files (frontend,endend,mongo) ans three services files (frontend,endend,mongo) 
+3. To run k8s deployments we use minikube . run the following commands
+  ``` bash
+   minikube start --profile webapp
+```
+4. To run that depolyment files and services files we use kubect1 tool. run the following commands
 
+``` bash
+   kubectl apply -f backend-deployment.yaml
+   kubectl apply -f frontend-deployment.yaml
+   kubectl apply -f mongo-deployment.yaml 
+   kubectl apply -f backend-service.yaml
+   kubectl apply -f frontend-service.yaml
+   kubectl apply -f mongo-service.yaml
+```
+5. Check whenther the services and deployments are running . run the following commands
+``` bash
+   kubect1 get deployments
+   kunect1 ger service
+   curl http://frontend
+```
+## Github Workflow
+ - Created .yml file for github actions and configured it as shown below
+``` bash
+    name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      run: |
+        docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+      env:
+        DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+        DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+    - name: Build and Push Docker Images
+      run: |
+        docker-compose -f docker-compose.yml build
+        docker-compose -f docker-compose.yml push
+```
+ 
 
