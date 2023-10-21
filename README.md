@@ -78,7 +78,7 @@ services:
 ``` bash
   docker compose up -bulid
 ```
-  As the container is running but webpage doesn't load in the browser due to there is bug in the source code to fix that,adding the line "dev": "vite --host"  in frontend/package.json, again build the image and web-site works correctly as show below
+  As the container is running but webpage doesn't load in the browser due to there is bug in the source code to fix that,adding the line ``` "dev": "vite --host" ```  in frontend/package.json, again build the image and web-site works correctly as show below
   
   ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/assets/112464539/e79f283e-01ee-42dc-b7f4-321dd4c12e03)
 
