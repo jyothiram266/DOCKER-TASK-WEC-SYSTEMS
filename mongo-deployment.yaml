@@ -31,7 +31,7 @@ spec:
           value: nitk
         - name: MONGO_INITDB_ROOT_USERNAME
           value: student
-        image: mongo:latest
+        image: mern-application-main-mongo-1
         imagePullPolicy: ""
         name: mongo
         ports:
