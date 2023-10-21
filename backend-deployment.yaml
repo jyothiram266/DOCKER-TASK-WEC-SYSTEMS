@@ -29,7 +29,7 @@ spec:
           value: mongodb://student:nitk@mongo:27017/admin
         image: backend
         imagePullPolicy: ""
-        name: backend
+        name: mern-application-main-backend-1
         ports:
         - containerPort: 5000
         resources: {}
