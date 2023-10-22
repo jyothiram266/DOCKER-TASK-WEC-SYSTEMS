@@ -79,6 +79,9 @@ services:
   docker compose up -bulid
 ```
   As the container is running but webpage doesn't load in the browser due to there is bug in the source code to fix that,adding the line ``` "dev": "vite --host" ```  in frontend/package.json, again build the image and web-site works correctly as show below
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-17-35.png?raw=true)
+  
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-17-43.png?raw=true)
   
   ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/assets/112464539/e79f283e-01ee-42dc-b7f4-321dd4c12e03)
 
@@ -87,11 +90,14 @@ services:
  ``` bash
    kompose convert -f docker-compose.yaml
  ```
-2. It will create three deployments files (frontend,endend,mongo) ans three services files (frontend,endend,mongo) 
-3. To run k8s deployments we use minikube . run the following commands
+   ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-23-18.png?raw=true)
+  -It will create three deployments files (frontend,endend,mongo) ans three services files (frontend,endend,mongo) 
+  
+  3. To run k8s deployments we use minikube . run the following commands
   ``` bash
    minikube start --profile webapp
 ```
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-25-13.png?raw=true)
 4. To run that depolyment files and services files we use kubect1 tool. run the following commands
 
 ``` bash
@@ -102,12 +108,16 @@ services:
    kubectl apply -f frontend-service.yaml
    kubectl apply -f mongo-service.yaml
 ```
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-27-16.png?raw=true)
 5. Check whenther the services and deployments are running . run the following commands
 ``` bash
    kubect1 get deployments
    kunect1 ger service
    curl http://frontend
 ```
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-30-07.png?raw=true)
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-32-43.png?raw=true)
+  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-32-57.png?raw=true0)
 ## Github Workflow
  - Created .yml file for github actions and configured it as shown below
 ``` bash
@@ -138,5 +148,5 @@ jobs:
         docker-compose -f docker-compose.yml build
         docker-compose -f docker-compose.yml push
 ```
- 
+ ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-36-55.png?raw=true)
 
