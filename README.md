@@ -1,7 +1,7 @@
 ## Project name : Containerization
 
 ## Description
-1. Containerize this mern-stack-apllication (https://github.com/puranikvinit/mern-application) using Docker.
+1. Containerize this mern-stack-apllication ```https://github.com/puranikvinit/mern-application``` using Docker.
 2. Use Docker Compose to bring up all services together Expose only the required services.
 3. Created a K8s deployment object for the services such that they can communicate with each other in a cluster. (Used minikube)
 4. Write a Github Actions workflow to Build and Push Docker images to DockerHub from the GitHub repository.
@@ -91,7 +91,8 @@ services:
    kompose convert -f docker-compose.yaml
  ```
    ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-23-18.png?raw=true)
-  -It will create three deployments files (frontend,endend,mongo) ans three services files (frontend,endend,mongo) 
+   
+  -It will create three deployments files (frontend,endend,mongo) and three services files (frontend,endend,mongo) 
   
   3. To run k8s deployments we use minikube . run the following commands
   ``` bash
@@ -148,5 +149,6 @@ jobs:
         docker-compose -f docker-compose.yml build
         docker-compose -f docker-compose.yml push
 ```
+   - Github Actions worked without any errors as show below
  ![image](https://github.com/jyothiram266/DOCKER-TASK-WEC-SYSTEMS/blob/main/screenshots/Screenshot%20from%202023-10-22%2010-36-55.png?raw=true)
 
